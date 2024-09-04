@@ -1,0 +1,74 @@
+/* Tạo dấu 3 chấm 1 hàng */
+/* h1 {
+	width: 200px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	background-color: pink;
+} */
+
+/* Tạo dấu 3 chấm nhưng nhiều hàng */
+/* h2 {
+	width: 300px;
+	overflow: hidden;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	display: -webkit-box;
+	background-color: aqua;
+} */
+
+/* .text_hl {
+	color: rgba(34,193,195,1);
+} */
+
+/* Kiểm tra thuộc tính có được trình duyệt hỗ trợ không */
+/* @supports(background-clip: text) or (-webkit-background-clip: text) {
+	.text_hl {
+		color: transparent;
+		background-color: rgba(34,193,195,1);
+		background: linear-gradient(63deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+		background-clip: text;
+		-webkit-background-clip: text;
+	}
+} */
+
+/* Shorthand background */
+/* background: bg-color bg-image position/bg-size bg-repeat bg-origin bg-clip bg-attachment initial|inherit; */
+/* flex-flow: flex-wrap flex-direction */
+/* flex-basis: theo trục main */
+/* flex:  flex-grow flex-shrink flex-basis*/
+
+.loading {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 50px;
+	height: 50px;
+	border: 3px solid;
+	border-color: red transparent;
+	border-radius: 50%;
+	translate: -50% -50%;
+	animation-name: loading;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes loading {
+	0% {
+		rotate: 0;
+	}
+	100% {
+		rotate: 360deg;
+	}
+}
+
+.my-color {
+	color: red;
+	font-size: 30px;
+}
+
+
+
+
+
+
