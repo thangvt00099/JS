@@ -1,29 +1,32 @@
-function timeSince(timeStamp) {
-	let now = new Date();
-	console.log("Xem thử timeStamp hiện tại: " + now.getTime());
+// Clone M2 từ M1 dùng toán tử spread(...)
+let M1 = [1, 2, 3];
+let M2 = [...M1];
+console.log(M2);
 
-	let timeDifference = now - timeStamp;
-	let seconds = Math.floor(timeDifference / 1000);
-	let minutes = Math.floor(seconds / 60);
-	let hours = Math.floor(minutes / 60);
-	let days = Math.floor(hours / 24);
-	let months = Math.floor(days / 30);
-	let years = Math.floor(months / 12);
-	if (years > 0) {
-		return `Online ${years} năm trước`;
-	} else if(months > 0) {
-		return `Online ${months} tháng trước`;
-	} else if (days > 0) {
-		return `Online ${days} ngày trước`;
-	} else if (hours > 0) {
-		return `Online ${hours} giờ trước`;
-	} else if (minutes > 0) {
-		return `Online ${minutes} phút trước`;
-	} else {
-		return `Online ${seconds} giây trước`;
-	}
+M2[0] = 99;
+console.log("Mảng M2 = " + M2);
+console.log("Mảng M1 = " + M1);
+
+// Truyền đối số vào hàm
+function sum(a, b, c) {
+	return a + b + c;
 }
+let numbers = [1, 2, 3];
+let result = sum(...numbers);
+console.log(result);
 
-let timeOffline = 1725447622274;
-console.log(timeSince(timeOffline))
+// Kết hợp mảng
+let arr1 = [1, 2, 3];
+let arr2 = [4, 5, 6];
+let combineArr = [...arr1, ...arr2];
+console.log(combineArr);
 
+// Tạo mảng mới
+let M3 = [1, 2, 3];
+let M4 = [...M3, 4, 5, 9];
+console.log(M4);
+
+// Chuyển iterable thành mảng
+let myName = "jacky";
+let chars = [...myName];
+console.log(chars);
