@@ -40,3 +40,35 @@ console.log(target);
 // Sử dụng toán tử spread để sao chép thuộc tính
 let target2 = {...source1, ...source2};
 console.log(target2);
+
+// Object JS Method - Phần 2
+// 5. Object.hasOwnProperty(pro) => phương thức này kiểm tra xem đối tượng có thuộc tính đó hay không (True or False)
+let person4 = {
+	name: "Trần Vũ Thắng",
+	age: 21
+};
+console.log(person4.hasOwnProperty("name"));
+console.log(person4.hasOwnProperty("job"));
+
+// 6. Object.freeze(obj) => phương thức này đóng băng đối tượng, không thể thêm - sửa - xóa
+let person5 = {
+	name: "Trần Vũ Thắng",
+	age: 21
+};
+Object.freeze(person5);
+person5.age = 100;
+person5.email = "tranvuthang57@gmail.com";
+delete person5.age;
+console.log(person5);
+
+// 7. Object.seal(obj) => phương thức này không cho phép thêm - xóa, chỉ cho phép sửa
+let person6 = {
+	name: "Trần Vũ Thắng",
+	age: 21
+};
+Object.seal(person6);
+person6.location = "New York";
+delete person6.age;
+person6.age = 100;
+console.log(person6);
+
