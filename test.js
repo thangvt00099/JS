@@ -1,34 +1,32 @@
-// ES 6 Classes
-// Bản chất JS không có class, Class chỉ là 1 hàm đặc biệt và tuân theo kế thừa từ Prototype
-// Class không hoisted (Không tự đưa khai báo lên đầu)
-// 1. Class Expression (ít dùng)
-const SinhVienEx = class {
+// Instance Method - Phương thức gắn với 1 thể hiện đối tượng
+// Static Method - Phương thức gắn với lớp, có thể gọi mà không cần tạo thể hiện đối tượng
 
-};
-
-// 2. Class Declaration (dùng chủ yếu)
-class SinhVien {
-	constructor(firstName, ID, birthYear, homeTown) {
-		this.firstName = firstName;
-		this.ID = ID;
-		this.birthYear = birthYear;
-		this.homeTown = homeTown;
+class Circle {
+	constructor(radius) {
+		this.radius = radius;
 	}
 
-	showInfo() {
-		return `${this.firstName}/${this.ID}/${this.homeTown}`;
+	// Instance Method
+	draw() {
+		console.log("Phương thức draw được gọi.");
+	}
+
+	// Static Method
+	static calArea(radius) {
+		return Math.PI * radius * radius;
 	}
 }
 
 // Tạo đối tượng
-const stu3 = new SinhVien("Trần Vũ Thắng", 1, 2003, "Hà Nội");
-const stu4 = new SinhVien("Phạm Quốc Thái", 2, 2003, "Hà Nội");
-console.log(stu3);
-console.log(Object.getPrototypeOf(stu3));
-console.log(Object.getPrototypeOf(stu3) === SinhVien.prototype);
+const c1 = new Circle(10);
+const c2 = new Circle(5);
+c1.draw();
+c2.draw();
 
-// Thêm phương thức vào class SinhVien
-SinhVien.prototype.calAge = function(currentYear) {
-	return currentYear - this.birthYear;
-}
-console.log(stu3.calAge(2024));
+// Gọi phương thức tĩnh
+console.log(Circle.calArea(10));
+console.log(Circle.calArea(5));
+
+// Ví dụ về Static Method: Math
+a = -10;
+console.log(Math.abs(a));
