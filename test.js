@@ -1,32 +1,37 @@
-// Instance Method - Phương thức gắn với 1 thể hiện đối tượng
-// Static Method - Phương thức gắn với lớp, có thể gọi mà không cần tạo thể hiện đối tượng
-
-class Circle {
-	constructor(radius) {
-		this.radius = radius;
+// Javascript Inheritance ES6 - OOP
+class School {
+	constructor(ID, name, birthYear) {
+		this.ID = ID;
+		this.name = name;
+		this.birthYear = birthYear;
 	}
-
-	// Instance Method
-	draw() {
-		console.log("Phương thức draw được gọi.");
-	}
-
-	// Static Method
-	static calArea(radius) {
-		return Math.PI * radius * radius;
+	calcAge(currentYear) {
+		return currentYear - this.birthYear;
 	}
 }
 
-// Tạo đối tượng
-const c1 = new Circle(10);
-const c2 = new Circle(5);
-c1.draw();
-c2.draw();
+// Lớp Student kế thừa lớp School (Có thêm thuộc tính và phương thức riêng)
+class Student extends School {
+	constructor(ID, name, birthYear, major) {
+		super(ID, name, birthYear);
+		this.major = major;
+	}
+	study() {
+		console.log(`${this.name} is studying ${this.major}`);
+	}
+}
 
-// Gọi phương thức tĩnh
-console.log(Circle.calArea(10));
-console.log(Circle.calArea(5));
+const p1 = new School("P1", "Thắng", 2003);
+console.log(p1.ID);
+console.log(p1.name);
+console.log(p1.birthYear);
+console.log(p1.calcAge(2024));
 
-// Ví dụ về Static Method: Math
-a = -10;
-console.log(Math.abs(a));
+// Tạo đối tượng của class Student - subclass
+const s1 = new Student("S001", "Trần Vũ Thắng", 2003, "Robot and Artifical Inteligence");
+console.log(s1.ID);
+console.log(s1.name);
+console.log(s1.birthYear);
+console.log(s1.major);
+console.log(s1.calcAge(2024));	
+s1.study();
