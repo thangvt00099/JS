@@ -1,37 +1,40 @@
-// Javascript Inheritance ES6 - OOP
+// Getter - phương thức dùng để lấy giá trị của thuộc tính
+// Setter - phương thức dùng để thiết lập giá trị cho thuộc tính
 class School {
-	constructor(ID, name, birthYear) {
+	constructor(ID, name, birthYear, scores) {
 		this.ID = ID;
 		this.name = name;
 		this.birthYear = birthYear;
+		this._scores = scores; // _ trạng thái protected - không truy cập được từ bên ngoài (chỉ là quy ước)
 	}
-	calcAge(currentYear) {
+
+	calAge(currentYear) {
 		return currentYear - this.birthYear;
 	}
+
+	// Getter cho thuộc tính scores
+	get score() {
+		return this._scores;
+	}
+
+	// Setter cho thuộc tính scores
+	set score(scores) {
+		if (scores >= 0 && scores <= 100) {
+			this._scores = scores;
+		} else {
+			console.log("Điểm số không hợp lệ");
+		}
+	}
 }
 
-// Lớp Student kế thừa lớp School (Có thêm thuộc tính và phương thức riêng)
-class Student extends School {
-	constructor(ID, name, birthYear, major) {
-		super(ID, name, birthYear);
-		this.major = major;
-	}
-	study() {
-		console.log(`${this.name} is studying ${this.major}`);
-	}
-}
-
-const p1 = new School("P1", "Thắng", 2003);
-console.log(p1.ID);
-console.log(p1.name);
-console.log(p1.birthYear);
-console.log(p1.calcAge(2024));
-
-// Tạo đối tượng của class Student - subclass
-const s1 = new Student("S001", "Trần Vũ Thắng", 2003, "Robot and Artifical Inteligence");
+const s1 = new School("S01", "John", 2003, 9);
 console.log(s1.ID);
 console.log(s1.name);
 console.log(s1.birthYear);
-console.log(s1.major);
-console.log(s1.calcAge(2024));	
-s1.study();
+
+// Sử dụng getter
+console.log(s1.score);
+
+// Sử dụng setter
+s1.score = 90;
+console.log(s1.score);
