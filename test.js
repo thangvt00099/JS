@@ -1,40 +1,67 @@
-// Getter - phương thức dùng để lấy giá trị của thuộc tính
-// Setter - phương thức dùng để thiết lập giá trị cho thuộc tính
-class School {
-	constructor(ID, name, birthYear, scores) {
-		this.ID = ID;
-		this.name = name;
-		this.birthYear = birthYear;
-		this._scores = scores; // _ trạng thái protected - không truy cập được từ bên ngoài (chỉ là quy ước)
+// OOP - Encapsulation
+// Public fields: Trường công khai, trường công cộng
+// Private fields: Trường riêng tư
+// Public method: Phương thức công khai
+// Private method: Phương thức riêng tư 
+// Sử dụng dấu #
+class Wallet {
+	#pin;
+	#balance;
+	#isPinEntered = false;
+	constructor(bankName, pin) {
+		this.bankName = bankName;
+		this.#pin = pin;
+		this.#balance = 0;
 	}
 
-	calAge(currentYear) {
-		return currentYear - this.birthYear;
+	deposit(value) { // Nạp tiền vào tk
+		if (!this.#isPinEntered) {
+			console.log("Sai mã pin!");
+			return;
+		}
+		this.#balance += value;
 	}
 
-	// Getter cho thuộc tính scores
-	get score() {
-		return this._scores;
+	// Private Method
+	#validatePin(pin) {
+		return this.#pin === pin;
 	}
 
-	// Setter cho thuộc tính scores
-	set score(scores) {
-		if (scores >= 0 && scores <= 100) {
-			this._scores = scores;
+	enterPin(pin) {
+		if (this.#validatePin(pin)) {
+			this.#isPinEntered = true;
 		} else {
-			console.log("Điểm số không hợp lệ");
+			console.log("Invalid Pin");
+		}
+	}
+
+	withdraw(value) {
+		if (!this.#isPinEntered) {
+			console.log("Sai mã pin!");
+			return;
+		} else {
+			if (value > this.#balance) {
+				console.log("Số tiền không đủ!");
+			} else {
+				this.#balance -= value;
+				console.log("Rút thành công!")
+			}
+		}
+	}
+
+	// Getter
+	get balance() {
+		if (!this.#isPinEntered) {
+			console.log("Kiểm tra lại mã pin!");
+			return;
+		} else {
+			return this.#balance;
 		}
 	}
 }
 
-const s1 = new School("S01", "John", 2003, 9);
-console.log(s1.ID);
-console.log(s1.name);
-console.log(s1.birthYear);
-
-// Sử dụng getter
-console.log(s1.score);
-
-// Sử dụng setter
-s1.score = 90;
-console.log(s1.score);
+const wallet = new Wallet("MB Bank", "1234");
+wallet.enterPin("1234");
+wallet.deposit(5000);
+wallet.withdraw(2000);
+console.log(wallet.balance);
