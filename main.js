@@ -216,3 +216,17 @@ var myObject = {
 // }
 
 
+/**
+JSON:
+	1. Là một định dạng dữ liệu (chuỗi)
+	2. Javascript Object Notation
+	3. Giúp thể hiện dạng dữ liệu: Number, Boolean, Null, Array, Object
+	Mã hóa / Giải mã (Encode / Decode)
+	Stringify: Từ JS type -> JSON
+	Parse: JSON -> JS type 
+ */
+
+// var json = '["Javascript", "PHP"]';
+// var json = '{"name": "Tran Vu Thang", "age": 18}';
+console.log(JSON.stringify({"name": "Tran Vu Thang", "age": 18}));
+
