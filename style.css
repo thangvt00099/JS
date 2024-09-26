@@ -91,6 +91,24 @@
 #clock {
 	font-size: 48px;
 } */
+ body {
+	font-size: 36px;
+ }
+
+ .myClass {
+	color: blue;
+	font-size: 18px;
+ }
+
+ .newClass {
+	background-color: green;
+	color: yellow;
+	font-style: italic;
+ }
+
+ .abc {
+	color: red;
+ }
 
 
 

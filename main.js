@@ -1,21 +1,23 @@
-// DOM - textContent, innerHTML, innerText
+// classList
+let element = document.getElementById("myElement");
 
-let element = document.getElementById("demo");
+// classList.add() - Thêm một lớp mới vào phần tử
+element.classList.add("newClass");
 
-// textContent - Trả về nội dung nằm bên trong phần tử, bao gồm cả khoảng trắng, tab xuống dòng,...
-console.log("textContent: ");
-console.log(element.textContent);
+// classList.contains() - Kiểm tra xem phần tử có chứa một lớp cụ thể không
+console.log(element.classList.contains("newClass"))
 
-// innerText - Trả về văn bản mà người dùng có thể nhìn thấy trên trình duyệt, loại bỏ các phần tử được ẩn bằng CSS
-console.log("innerText: ");
-console.log(element.innerText);
+// classList.remove() - Xóa một lớp khỏi phần tử
+element.classList.remove("newClass");
 
-// innerHTML - Trả về toàn bộ nội dung HTML của phần tử, bao gồm cả các thẻ HTML và cấu trúc của chúng
-console.log("innerHTML: ");
-console.log(element.innerHTML);
+// classList.replace() - thay thế một lớp cũ bằng một lớp mới
+element.classList.replace("myClass", "abc")
 
-let element2 = document.getElementById("demo2");
-element2.innerHTML = "<p><i>Tuhoc.cc</i></p>";
-element2.textContent = "<p><i>Tuhoc.cc</i></p>";
+// classList.toggle() - Loại bỏ lớp nếu đã tồn tại, thêm mới nếu chưa tồn tại
+element.classList.toggle("toggleClass");
+
+// Xem các class trong phần tử
+console.log(element.classList)
+
 
 
