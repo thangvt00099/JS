@@ -1,23 +1,31 @@
-// classList
-let element = document.getElementById("myElement");
+// DOM appendChild
+/*
+1. Chỉ thêm được đối tượng Node
+2. Trả về phần tử vừa thêm
+3. Chỉ thêm được 1 phần tử mỗi lần gọi
+*/
 
-// classList.add() - Thêm một lớp mới vào phần tử
-element.classList.add("newClass");
+let parentElm = document.querySelector("#header");
 
-// classList.contains() - Kiểm tra xem phần tử có chứa một lớp cụ thể không
-console.log(element.classList.contains("newClass"))
+let pElm = document.createElement("p");
+pElm.textContent = "Một con vịt xòe ra 2 cái cánh"
+pElm.style.color = "green";
+pElm.setAttribute("Class", "doan_van");
 
-// classList.remove() - Xóa một lớp khỏi phần tử
-element.classList.remove("newClass");
+parentElm.appendChild(pElm);
+console.log(parentElm.appendChild(pElm))
 
-// classList.replace() - thay thế một lớp cũ bằng một lớp mới
-element.classList.replace("myClass", "abc")
+let h3Elm = document.createElement("h3");
+h3Elm.textContent = "Đây là thẻ h3 mới thêm";
+parentElm.append(pElm, h3Elm, "Đây là văn bản mới thêm");
 
-// classList.toggle() - Loại bỏ lớp nếu đã tồn tại, thêm mới nếu chưa tồn tại
-element.classList.toggle("toggleClass");
+let btn = document.createElement("button");
+btn.textContent = "Click me";
 
-// Xem các class trong phần tử
-console.log(element.classList)
+let addBtn = parentElm.appendChild(btn);
+addBtn.addEventListener("click", function() {
+	alert("Bạn đã click vào đây!");
+})
 
 
 

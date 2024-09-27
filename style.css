@@ -91,24 +91,16 @@
 #clock {
 	font-size: 48px;
 } */
- body {
-	font-size: 36px;
- }
+body {
+	font-size: 20px;
+}
 
- .myClass {
-	color: blue;
-	font-size: 18px;
- }
-
- .newClass {
-	background-color: green;
-	color: yellow;
-	font-style: italic;
- }
-
- .abc {
-	color: red;
- }
+.doan_van {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: yellow;
+}
 
 
 
