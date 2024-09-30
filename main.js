@@ -1,19 +1,21 @@
-// DOM
-// 1. removeChild - xóa phần tử con
-// Syntax: parentElm.removeChild(childElement)
-let childElm = document.querySelector("#item2");
-let parent = document.querySelector("#list");
-parent.removeChild(childElm);
+// https://raw.githubusercontent.com/GaLaiLapTrinh/pokemon/main/img/1.png
+const baseUrl = "https://raw.githubusercontent.com/GaLaiLapTrinh/pokemon/main/img/";
+let container = document.getElementById("container");
 
-// Không cần lấy phần tử cha, ngắn gọn hơn
-let childElm2 = document.querySelector("#item3");
-childElm2.parentElement.removeChild(childElm2);
+// Bài toán 1: Thêm 151 ảnh
+// for (let i = 1; i < 152; i++) {
+// 	let newImg = document.createElement("img");
+// 	newImg.src = `${baseUrl}${i}.png`;
+// 	container.appendChild(newImg);
+// }
 
-// 2. remove
-// Syntax: element.remove()
-let childElm3 = document.querySelector("#item4");
-childElm3.remove();
-
-
-
-
+// Bài toán 2: Thêm 1 khối div, trong có img, span số thứ tự ảnh
+for (let i = 1; i < 152; i++) {
+	let divElm = document.createElement("div");
+	container.appendChild(divElm);
+	let newImg = document.createElement("img");
+	newImg.src = `${baseUrl}${i}.png`;
+	let spanElm = document.createElement("span");
+	spanElm.innerText = `#${i}`;
+	divElm.append(newImg, spanElm);
+}

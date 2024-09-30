@@ -91,7 +91,24 @@
 #clock {
 	font-size: 48px;
 } */
+#container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 5px;
+}
 
+div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+img {
+	background-color: tomato;
+}
 
 
 
