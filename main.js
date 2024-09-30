@@ -1,31 +1,19 @@
-// DOM appendChild
-/*
-1. Chỉ thêm được đối tượng Node
-2. Trả về phần tử vừa thêm
-3. Chỉ thêm được 1 phần tử mỗi lần gọi
-*/
+// DOM
+// 1. removeChild - xóa phần tử con
+// Syntax: parentElm.removeChild(childElement)
+let childElm = document.querySelector("#item2");
+let parent = document.querySelector("#list");
+parent.removeChild(childElm);
 
-let parentElm = document.querySelector("#header");
+// Không cần lấy phần tử cha, ngắn gọn hơn
+let childElm2 = document.querySelector("#item3");
+childElm2.parentElement.removeChild(childElm2);
 
-let pElm = document.createElement("p");
-pElm.textContent = "Một con vịt xòe ra 2 cái cánh"
-pElm.style.color = "green";
-pElm.setAttribute("Class", "doan_van");
+// 2. remove
+// Syntax: element.remove()
+let childElm3 = document.querySelector("#item4");
+childElm3.remove();
 
-parentElm.appendChild(pElm);
-console.log(parentElm.appendChild(pElm))
-
-let h3Elm = document.createElement("h3");
-h3Elm.textContent = "Đây là thẻ h3 mới thêm";
-parentElm.append(pElm, h3Elm, "Đây là văn bản mới thêm");
-
-let btn = document.createElement("button");
-btn.textContent = "Click me";
-
-let addBtn = parentElm.appendChild(btn);
-addBtn.addEventListener("click", function() {
-	alert("Bạn đã click vào đây!");
-})
 
 
 

@@ -91,16 +91,7 @@
 #clock {
 	font-size: 48px;
 } */
-body {
-	font-size: 20px;
-}
 
-.doan_van {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-color: yellow;
-}
 
 
 
