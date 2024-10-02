@@ -1,21 +1,42 @@
-// https://raw.githubusercontent.com/GaLaiLapTrinh/pokemon/main/img/1.png
-const baseUrl = "https://raw.githubusercontent.com/GaLaiLapTrinh/pokemon/main/img/";
-let container = document.getElementById("container");
+// DOM Level 0 Event Handling
+// Thuật ngữ được sử dụng để chỉ các phương pháp xử lý sự kiện từ thời kỳ đầu của DOM API
+// Là phương pháp bắt sự kiện bằng cách gán trực tiếp một hàm JS cho thuộc tính sự kiện của phần tử HTML
 
-// Bài toán 1: Thêm 151 ảnh
-// for (let i = 1; i < 152; i++) {
-// 	let newImg = document.createElement("img");
-// 	newImg.src = `${baseUrl}${i}.png`;
-// 	container.appendChild(newImg);
+let btnElm1 = document.getElementById("btn");
+
+// Dùng expression function
+// btnElm1.onclick = function() {
+// 	alert("Bạn đã bấm vào nút");
 // }
 
-// Bài toán 2: Thêm 1 khối div, trong có img, span số thứ tự ảnh
-for (let i = 1; i < 152; i++) {
-	let divElm = document.createElement("div");
-	container.appendChild(divElm);
-	let newImg = document.createElement("img");
-	newImg.src = `${baseUrl}${i}.png`;
-	let spanElm = document.createElement("span");
-	spanElm.innerText = `#${i}`;
-	divElm.append(newImg, spanElm);
+// Dùng declaration function
+// function clickHandler() {
+// 	alert("Bạn đã click vào button");
+// }
+// btnElm1.onclick = clickHandler;
+
+// Dùng Arrow function
+// btnElm1.onclick = () => {
+// 	alert("Bạn đã click vào button");
+// }
+
+// Ví dụ
+function mouseOver() {
+	document.getElementById("message").textContent = "Mouse is over the button";
 }
+
+function mouseOut() {
+	document.getElementById("message").textContent = "Mouse is out the button";
+}
+
+function setUp() {
+	let btnElm2 = document.getElementById("btn2");
+	btnElm2.onmouseover = mouseOver;
+	btnElm2.onmouseout = mouseOut;
+}
+
+// onload - sự kiện của đối tượng window được kích hoạt khi toàn bộ trang web tải xong,
+// bao gồm tất cả các tài nguyên như hình ảnh, script, stylesheet
+
+window.onload = setUp
+
