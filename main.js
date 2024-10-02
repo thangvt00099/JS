@@ -1,42 +1,50 @@
-// DOM Level 0 Event Handling
-// Thuật ngữ được sử dụng để chỉ các phương pháp xử lý sự kiện từ thời kỳ đầu của DOM API
-// Là phương pháp bắt sự kiện bằng cách gán trực tiếp một hàm JS cho thuộc tính sự kiện của phần tử HTML
+// Event JS - addEventListener
+// Sử dụng để gọi hàm khi mà sự kiện được chỉ định xảy ra
+// Có thể thêm cùng 1 sự kiện nhiều lần trên 1 phần tử
+/*
+Syntax: element.addEventListener(event, function, options)
+Trong đó:
+	element: Phần tử muốn thêm sự kiện
+	event: tên sự kiện
+	function: hàm xử lý sự kiện
+	options: tùy chọn
+*/
+const btn = document.getElementById("btn3");
 
-let btnElm1 = document.getElementById("btn");
+// Expression function
+// btn.addEventListener("click", function() {
+// 	alert("Sử dụng expression function");
+// })
 
-// Dùng expression function
-// btnElm1.onclick = function() {
-// 	alert("Bạn đã bấm vào nút");
-// }
-
-// Dùng declaration function
+// Declartion function
 // function clickHandler() {
-// 	alert("Bạn đã click vào button");
+// 	alert("Sử dụng declaration function");
 // }
-// btnElm1.onclick = clickHandler;
+// btn.addEventListener("click", clickHandler);
 
-// Dùng Arrow function
-// btnElm1.onclick = () => {
-// 	alert("Bạn đã click vào button");
-// }
+// Arrow function
+// btn.addEventListener("click", () => {
+// 	alert("Sử dụng arrow function");
+// })
 
-// Ví dụ
-function mouseOver() {
-	document.getElementById("message").textContent = "Mouse is over the button";
+const btn4 = document.getElementById("btn4");
+function clickHandler1() {
+	alert("Đây là sự kiện 1!")
 }
 
-function mouseOut() {
-	document.getElementById("message").textContent = "Mouse is out the button";
+function clickHandler2() {
+	alert("Đây là sự kiện 2!")
 }
+// btn4.addEventListener("click", clickHandler1);
+// btn4.addEventListener("click", clickHandler2);
 
-function setUp() {
-	let btnElm2 = document.getElementById("btn2");
-	btnElm2.onmouseover = mouseOver;
-	btnElm2.onmouseout = mouseOut;
-}
+// DOM Level 0 Event Handling bị ghi đè
+// btn4.onclick = clickHandler1;
+// btn4.onclick = clickHandler2;
 
-// onload - sự kiện của đối tượng window được kích hoạt khi toàn bộ trang web tải xong,
-// bao gồm tất cả các tài nguyên như hình ảnh, script, stylesheet
+// Xóa event
+// btn4.removeEventListener("click", clickHandler1);
 
-window.onload = setUp
-
+// Xử lí sự kiện với options
+btn4.addEventListener("click", clickHandler1, {once: true});
+btn4.addEventListener("click", clickHandler2);
