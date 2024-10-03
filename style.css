@@ -91,11 +91,10 @@
 #clock {
 	font-size: 48px;
 } */
-body {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
+.btn {
+	width: 100px;
+	height: 100px;
+	margin: 2px;
 }
 
 
