@@ -91,23 +91,11 @@
 #clock {
 	font-size: 48px;
 } */
-#container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-wrap: wrap;
-	gap: 5px;
-}
-
-div {
+body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-}
-
-img {
-	background-color: tomato;
 }
 
 
