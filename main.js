@@ -1,21 +1,22 @@
-// Keyboard events and event object
-const inp = document.querySelector("#inp");
-// inp.addEventListener("keydown", function() {
-// 	console.log("KEYDOWN!")
-// })
+// PreventDefault - Form Events
+// Ngăn chặn hành vi mặc định của sự kiện
+const form = document.querySelector("#login");
+const userName = document.querySelector("#name");
+const ulElm = document.querySelector("#list");
+const passWord = document.querySelector("#password");
 
-// inp.addEventListener("keyup", function() {
-// 	console.log("KEYUP!")
-// })
+form.addEventListener("submit", function(e) {
+	e.preventDefault();	
+	const liElm = document.createElement("li");
+	liElm.innerText = userName.value;
+	ulElm.appendChild(liElm);
+	userName.value = "";
+	passWord.value = "";
+})
 
-// Event object
-// inp.addEventListener("keydown", function(e) {
-// 	console.log(e);
-// })
-
-document.addEventListener("keydown", function(e) {
-	if (e.code === "KeyR") {
-		document.body.style.backgroundColor = "cyan";	
-	}
+const aElm = document.querySelector("a");
+aElm.addEventListener("click", function(e) {
+	e.preventDefault();
+	console.log("Link đã được click!");
 })
 
