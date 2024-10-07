@@ -1,15 +1,20 @@
-// Input & Change Events
-// change event: sự kiện xảy ra khi giá trị thay đổi và mất focus
-const inputElm = document.querySelector("#name");
-// inputElm.addEventListener("change", function(e) {
-// 	console.log(e.target.value);
-// })
+// Event Bubbling
+const child = document.querySelector("#child");
+const parent = document.querySelector("#parent");
+const grandparent = document.querySelector("#grandparent");
 
-// input event: một sự kiện mà trình duyệt kích hoạt khi người dùng thực hiện
-// bất kỳ hành động nhập liệu nào trên 1 phần tử HTML
-inputElm.addEventListener("input", function(e) {
-	console.log(e.target.value);
-	const hiElm = document.querySelector("#hi");
-	hiElm.textContent = e.target.value;
+child.addEventListener("click", function(e) {
+	e.stopPropagation();
+	console.log("Child clicked");
 })
+
+parent.addEventListener("click", function(e) {
+	e.stopPropagation();
+	console.log("Parent clicked");
+})
+
+grandparent.addEventListener("click", function() {
+	console.log("Grand parent clicked");
+})
+
 
